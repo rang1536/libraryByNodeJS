@@ -26,15 +26,19 @@
                     </button>
                 </div>
                 <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>&nbsp;Library</a>
-<!--
-                <div class="navbar-collapse collapse">
-                   <ul class="nav navbar-nav navbar-right">
-							<li>ID<input type="text" name="adminId"/></li>
-							<li>PW<input type="text" name="adminPw"/></li>
-							<li><input type="submit" value="로그인"/></li>
 
-                   </ul>
-                </div> -->
+                <!--
+                  <div class="navbar-collapse collapse">
+                    <form action="/admin/login" method="post">
+                     <ul class="nav navbar-nav navbar-right">
+                      <li>ID<input type="text" name="adminId"/></li>
+                      <li>PW<input type="text" name="adminPw"/></li>
+                      <li><input type="submit" value="로그인"/></li>
+
+                     </ul>
+                   </form>
+                 </div>
+                -->
 
 				        <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -98,7 +102,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>도서목록</h2>
+                     <h2>대여목록</h2>
                     </div>
                 </div>
                 <hr />
@@ -106,18 +110,18 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>도서번호</th>
+                          <th>대여번호</th>
                           <th>도서명</th>
-                          <th>저자</th>
-                          <th>출판사</th>
+                          <th>대여회원명</th>
+                          <th>대여일자</th>
                         </tr>
                       <tbody>
-                        <% for(var b in booksList) {%>
+                        <% for(var r in rentList) {%>
                         <tr>
-                          <td><%= booksList[b].booksnumber %></td>
-                          <td><a href="/modify/<%=booksList[b].booksnumber%>"><%= booksList[b].booksname %></a></td>
-                          <td><%= booksList[b].booksauthor %></td>
-                          <td><%= booksList[b].booksmade %></td>
+                          <td><%= rentList[r].booksrentnumber %></td>
+                          <td><a href="/rent/<%=rentList[r].booksrentnumber%>"><%= rentList[r].booksname %></a></td>
+                          <td><%= rentList[r].membername %></td>
+                          <td><%= rentList[r].startday %></td>
                         </tr>
                         <%}%>
                       </tbody>
@@ -127,6 +131,7 @@
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
+
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->

@@ -36,11 +36,11 @@
                    </ul>
                 </div> -->
 
-				<div class="navbar-collapse collapse">
+		            <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/home">HOME</a></li>
                         <li><a href="#">사이트맵</a></li>
-                        <li><a href="#">로그아웃</a></li>
+                        <li><a href="/admin/logout">로그아웃</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,18 +63,18 @@
                                 <a href="/list/books">도서목록</a>
                             </li>
                             <li>
-                                <a href="#">대출가능목록</a>
+                                <a href="/list/rentCan">대출가능목록</a>
                             </li>
                             <li>
                                <a href="#">대출관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                 									<li>
-                										<a href="#">등록</a>
+                										<a href="/add/rentAdd">등록</a>
                 									</li>
                 									<li>
-                										<a href="#">반납</a>
+                										<a href="/rent/rentList">반납</a>
                 									</li>
-                            	  </ul>
+                            	</ul>
                             </li>
                         </ul>
                     </li>
@@ -83,10 +83,10 @@
                         <a href="#"><i class="fa fa-sitemap "></i>회원관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">회원등록</a>
+                                <a href="/add/member">회원등록</a>
                             </li>
                             <li>
-                                <a href="#">관리자등록</a>
+                                <a href="/add/admin">관리자등록</a>
                             </li>
                         </ul>
                     </li>
@@ -102,6 +102,7 @@
                     </div>
                 </div>
                 <br/><br/>
+
 				<div class="container">
 				  <form class="form-horizontal" role="form" action="/add/books" method='post'>
 				    <fieldset>
@@ -222,13 +223,13 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="/assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="/assets/js/jquery.metisMenu.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
 
 
 </body>

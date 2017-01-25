@@ -36,11 +36,11 @@
                    </ul>
                 </div> -->
 
-				<div class="navbar-collapse collapse">
+				        <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">HOME</a></li>
+                        <li><a href="/home">HOME</a></li>
                         <li><a href="#">사이트맵</a></li>
-                        <li><a href="#">로그아웃</a></li>
+                        <li><a href="/admin/logout">로그아웃</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,27 +57,24 @@
                         <a href="#"><i class="fa fa-edit "></i>도서관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">도서등록</a>
+                                <a href="/add/books">도서등록</a>
                             </li>
                             <li>
-                                <a href="#">도서수정</a>
+                                <a href="/list/books">도서목록</a>
                             </li>
                             <li>
-                                <a href="#">도서목록</a>
-                            </li>
-                            <li>
-                                <a href="#">대출가능목록</a>
+                                <a href="/list/rentCan">대출가능목록</a>
                             </li>
                             <li>
                                <a href="#">대출관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                 									<li>
-                										<a href="#">등록</a>
+                										<a href="/add/rentAdd">등록</a>
                 									</li>
                 									<li>
-                										<a href="#">반납</a>
+                										<a href="/rent/rentList">반납</a>
                 									</li>
-                            	  </ul>
+                            	</ul>
                             </li>
                         </ul>
                     </li>
@@ -86,10 +83,10 @@
                         <a href="#"><i class="fa fa-sitemap "></i>회원관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">회원등록</a>
+                                <a href="/add/member">회원등록</a>
                             </li>
                             <li>
-                                <a href="#">관리자등록</a>
+                                <a href="/add/admin">관리자등록</a>
                             </li>
                         </ul>
                     </li>
@@ -106,7 +103,7 @@
                 </div>
                 <br/><br/>
 				<div class="container">
-				  <form class="form-horizontal" role="form">
+				  <form class="form-horizontal" role="form" action="/add/members" method="post">
 				    <fieldset>
 
 				      <div class="form-group">
@@ -134,13 +131,13 @@
 				        </div>
 				      </div>
 				      <div class="form-group">
-						<label class="col-sm-3 control-label" for="rentCan">회비납부여부</label>
+						<label class="col-sm-3 control-label" for="memberVip">회비납부여부</label>
 							<div class="col-sm-9">
 							<label class="radio-inline">
-							<input type="radio"  name="rentCan" value="true"/>납부
+							<input type="radio"  name="memberVip" value="1"/>납부
 						</label>
 							<label class="radio-inline">
-							<input type="radio"  name="rentCan" value="false"/>미납
+							<input type="radio"  name="memberVip" value="0"/>미납
 						</label>
 						</div>
 
@@ -151,14 +148,9 @@
 					        	<div class="col-xs-3">
 					              <select class="form-control" name="libraryCode">
 					              	<option>--도서관선택--</option>
-					                <option value="1">재호도서관</option>
-					                <option value="2">스마트도서관</option>
-					                <option value="3">진남도서관</option>
-					                <option value="4">수아도서관</option>
-					                <option value="5">은비도서관</option>
-					                <option value="6">상엽도서관</option>
-					                <option value="7">봉연도서관</option>
-
+                          <% for(var l in libResult){%>
+					                <option value="<%= libResult[l].librarynumber %>"><%= libResult[l].libraryname%></option>
+					                <%}%>
 					              </select>
 					            </div>
 					          </div>
@@ -187,13 +179,13 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="/assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="/assets/js/jquery.metisMenu.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
 
 
 </body>

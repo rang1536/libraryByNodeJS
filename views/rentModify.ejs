@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Bootstrap Admin Template : Two Page</title>
+  <title>Book Add Form</title>
 <!-- BOOTSTRAP STYLES-->
   <link href="/assets/css/bootstrap.css" rel="stylesheet" />
    <!-- FONTAWESOME STYLES-->
@@ -26,8 +26,8 @@
                     </button>
                 </div>
                 <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>&nbsp;Library</a>
-<!--
-                <div class="navbar-collapse collapse">
+
+                <!-- <div class="navbar-collapse collapse">
                    <ul class="nav navbar-nav navbar-right">
 							<li>ID<input type="text" name="adminId"/></li>
 							<li>PW<input type="text" name="adminPw"/></li>
@@ -38,7 +38,7 @@
 
 				        <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">HOME</a></li>
+                        <li><a href="/home">HOME</a></li>
                         <li><a href="#">사이트맵</a></li>
                         <li><a href="/admin/logout">로그아웃</a></li>
                     </ul>
@@ -94,39 +94,96 @@
 			</div>
         </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
+        <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>도서목록</h2>
+                    <center><h2>반납정보</h2></center>
                     </div>
                 </div>
+                <br/><br/>
+
+				<div class="container">
+				  <form class="form-horizontal" role="form" action="/rent/modify" method='post'>
+				    <fieldset>
+              <div class="form-group">
+				        <label class="col-sm-3 control-label" for="booksRentNumber">대여번호</label>
+				        <div class="col-sm-7">
+				          <input type="text" class="form-control" value="<%=rentList[0].booksrentnumber%>" name="booksRentNumber" id="booksRentNumber" readonly="readonly" />
+				        </div>
+				      </div>
+			        <div class="form-group">
+				        <label class="col-sm-3 control-label" for="booksNumber">도서번호</label>
+				        <div class="col-sm-7">
+				          <input type="text" class="form-control" value="<%=rentList[0].booksnumber%>" name="booksNumber" id="booksNumber" readonly="readonly" />
+				        </div>
+				      </div>
+				      <div class="form-group">
+				        <label class="col-sm-3 control-label" for="membernumber">회원번호</label>
+				        <div class="col-sm-7">
+				          <input type="text" class="form-control" value="<%=rentList[0].membernumber%>" readonly="readonly" name="membernumber" id="membernumber" placeholder="회원번호를 입력하세요">
+				        </div>
+				      </div>
+              <div class="form-group">
+  							<label class="col-sm-3 control-label" for="startDay">대여일</label>
+  							<div class="col-sm-7">
+  							  <input type="text" class="form-control" value="<%=rentList[0].startday%>" readonly="readonly" name="startDay" id="startDay"/>
+  							</div>
+  						</div>
+  						<div class="form-group">
+  							<label class="col-sm-3 control-label" for="endDay">반납일</label>
+  							<div class="col-sm-7">
+  							  <input type="date" class="form-control" name="endDay" id="endDay"/>
+  							</div>
+  						</div>
+  						<div class="form-group">
+  							<label class="col-sm-3 control-label" for="rentPay">대여료</label>
+  							<div class="col-sm-7">
+  							  <input type="text" class="form-control" value="<%=rentList[0].rentpay%>" name="rentPay" id="rentPay" placeholder="선납금을 입력하세요"/>
+  							</div>
+  						</div>
+              <div class="form-group">
+  							<label class="col-sm-3 control-label" for="totalRentDay">총대여일수</label>
+  							<div class="col-sm-7">
+  							  <input type="text" class="form-control" name="totalRentDay" id="totalRentDay" placeholder="총대여일수를 입력하세요"/>
+  							</div>
+  						</div>
+  						<div class="form-group">
+  							<label class="col-sm-3 control-label" for="booksDamage">파손여부</label>
+  							<div class="col-sm-7">
+  							  <label class="radio-inline">
+  							  	<input type="radio"  name="booksDamage" value="1"/>파손됨
+  							  </label>
+  							  <label class="radio-inline">
+  							  	<input type="radio"  name="booksDamage" value="0"/>멀쩡함
+  							  </label>
+  							</div>
+  						</div>
+              <div class="form-group">
+  							<label class="col-sm-3 control-label" for="damageDay">파손일자</label>
+  							<div class="col-sm-7">
+  							  <input type="date" class="form-control" name="damageDay" id="damageDay"/>
+  							</div>
+  						</div>
+  						<div class="form-group">
+				        <div class="col-sm-offset-3 col-sm-9">
+				          <input type="submit" class="btn btn-success" value="반납정보등록"/>
+				        </div>
+				      </div>
+				    </fieldset>
+				  </form>
+				</div>
+                 <!-- /. ROW  -->
                 <hr />
-                <div class='container'>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>도서번호</th>
-                          <th>도서명</th>
-                          <th>저자</th>
-                          <th>출판사</th>
-                        </tr>
-                      <tbody>
-                        <% for(var b in booksList) {%>
-                        <tr>
-                          <td><%= booksList[b].booksnumber %></td>
-                          <td><a href="/modify/<%=booksList[b].booksnumber%>"><%= booksList[b].booksname %></a></td>
-                          <td><%= booksList[b].booksauthor %></td>
-                          <td><%= booksList[b].booksmade %></td>
-                        </tr>
-                        <%}%>
-                      </tbody>
-                </div>
-    		    </div>
+
+                 <!-- /. ROW  -->
+    		</div>
              <!-- /. PAGE INNER  -->
+
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
+
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
