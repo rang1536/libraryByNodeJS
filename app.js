@@ -50,6 +50,6 @@ app.use('/booksModify',modify);
 var list = require('./routes/list')();
 app.use('/list',list);
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
   console.log('Connected 3000port!');
 });
